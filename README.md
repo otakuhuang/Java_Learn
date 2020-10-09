@@ -1,2 +1,2 @@
 # Java_Learn
-Learn Java
+用来记录自己学习 Java 历程吧~
