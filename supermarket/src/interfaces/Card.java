@@ -1,3 +1,5 @@
+package interfaces;
+
 /**
  * VIP 卡、打折卡、赠品卡等
  */

@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package interfaces;
+
 import java.util.Date;
 
 public class ShoppingCart {

@@ -1,3 +1,5 @@
+package interfaces;
+
 public enum Category {
 
     // 食物
