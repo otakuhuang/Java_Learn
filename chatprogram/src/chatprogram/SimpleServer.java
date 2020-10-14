@@ -1,4 +1,5 @@
-import javax.swing.text.AttributeSet;
+package chatprogram;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -14,7 +15,7 @@ public class SimpleServer {
     public static final String BYE = "bye";
 
     public static void main(String[] args) throws IOException {
-
+        commWithClient();
     }
 
     private static void commWithClient() throws IOException {

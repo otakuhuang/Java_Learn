@@ -3,7 +3,7 @@ package chatprogram;
 import java.io.IOException;
 import java.net.Socket;
 
-public class Client {
+public class SimpleClient {
     public static void main(String[] args) throws IOException {
         commWithServer();
     }

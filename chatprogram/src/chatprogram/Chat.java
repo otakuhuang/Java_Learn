@@ -1,6 +1,10 @@
+package chatprogram;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
+
+import static chatprogram.SimpleServer.*;
 
 public class Chat {
 
@@ -18,8 +22,8 @@ public class Chat {
         Scanner in = new Scanner(System.in);
 
         try (
-                BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), SERVER_CHATSET));
-                PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+                BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), SERVER_CHARSET));
+                PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), SERVER_CHARSET));
         ) {
             System.out.println("Socket 连接成功! 建立输入输出");
             if (greetings != null) {
@@ -28,10 +32,11 @@ public class Chat {
             }
             while (true) {
                 String line = br.readLine().trim();
-                if (line.equalsIgnoreCase(SimpleServer.BYE)) {
+                if (line.equalsIgnoreCase(BYE)) {
                     System.out.println("对方要求断开连接");
-                    pw.println(SimpleServer.BYE);
+                    pw.println(BYE);
                     pw.flush();
+                    break;
                 } else {
                     System.out.println("来自\""+from+"\"的消息: "+line);
                 }
@@ -40,8 +45,8 @@ public class Chat {
                 pw.flush();
             }
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
-
+        System.out.println("聊天结束!");
     }
 }
