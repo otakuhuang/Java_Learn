@@ -1,2 +1,8 @@
-package com.jamhuang.chatroom.server;public class ServerCommand {
+package com.jamhuang.chatroom.server;
+
+public interface ServerCommand {
+
+    String commandName();
+
+    String process(ChatRoomServer chatRoomServer) throws Exception;
 }

@@ -1,2 +1,4 @@
-package com.jamhuang.chatroom.client;public class ChatRoomClient {
+package com.jamhuang.chatroom.client;
+
+public class ChatRoomClient {
 }
