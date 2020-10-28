@@ -1,9 +1,9 @@
-package chapter_3;
+package chapter_4;
 
 import static utils.Utils.input;
 import static utils.Utils.output;
 
-public class chapter_3_2 {
+public class chapter_4_2 {
 
     public static void main(String[] args) {
 

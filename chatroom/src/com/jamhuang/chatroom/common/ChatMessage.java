@@ -17,7 +17,7 @@ public class ChatMessage {
     public ChatMessage(String from, String to, String message) {
         this.from = from;
         this.to = to;
-        this.message = message;
+        this.message = message.trim();
     }
 
     public String getFrom() {
@@ -49,7 +49,8 @@ public class ChatMessage {
         int fromEnd = message.indexOf(MESSAGE_SEP);
         ret.from = message.substring(0, fromEnd);
         int toEnd = message.indexOf(MESSAGE_SEP, fromEnd + 1);
-        ret.message = message.substring(fromEnd + 1, toEnd);
+        ret.to = message.substring(fromEnd + 1, toEnd);
+        ret.message = message.substring(toEnd + 1).trim();
         return ret;
     }
 
@@ -69,8 +70,12 @@ public class ChatMessage {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ChatMessage)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof ChatMessage)) {
+            return false;
+        }
         ChatMessage that = (ChatMessage) o;
         return Objects.equals(from, that.from) &&
                 Objects.equals(to, that.to) &&

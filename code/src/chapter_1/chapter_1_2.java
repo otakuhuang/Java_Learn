@@ -1,10 +1,12 @@
 package chapter_1;
 
+import static utils.Utils.output;
+
 public class chapter_1_2 {
     public static void main(String[] args) {
-        System.out.println("-------------\t");
-        System.out.println("| 我要学会   |");
-        System.out.println("| Java 语言 |");
-        System.out.println("-------------\t");
+        output("-------------\t");
+        output("| 我要学会   |");
+        output("| Java 语言 |");
+        output("-------------\t");
     }
 }

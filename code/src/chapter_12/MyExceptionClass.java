@@ -1,6 +1,6 @@
 package chapter_12;
 
-public class ExceptionClass {
+public class MyExceptionClass {
     public static void main(String[] args) {
         Student student = new Student();
         try {

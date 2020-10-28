@@ -1,9 +1,14 @@
 package com.jamhuang.chatroom;
 
-public class ChatRoomClient {
+import com.jamhuang.chatroom.client.ChatRoomClient;
 
-    public static void main(String[] args) {
+import java.io.IOException;
+
+public class ChatRoomClientAppMain {
+
+    public static void main(String[] args) throws IOException {
         String server = "127.0.0.1";
         ChatRoomClient client = new ChatRoomClient(server);
+        client.start();
     }
 }

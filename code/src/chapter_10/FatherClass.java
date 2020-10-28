@@ -2,7 +2,7 @@ package chapter_10;
 
 import static utils.Utils.output;
 
-public class Father {
+public class FatherClass {
     public void methodOne() {
         output("父类方法 1");
     }
@@ -12,13 +12,13 @@ public class Father {
     }
 
     public static void main(String[] args) {
-        Father child = new Child();
+        FatherClass child = new ChildClass();
         child.methodOne();
         child.methodTwo();
     }
 }
 
-class Child  extends Father {
+class ChildClass extends FatherClass {
     @Override
     public void methodTwo() {
         output("子类方法 2");

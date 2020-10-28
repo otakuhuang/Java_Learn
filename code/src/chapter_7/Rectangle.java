@@ -1,38 +1,34 @@
 package chapter_7;
 
-import java.awt.*;
+public class Rectangle {
 
-public class chapter_7_2 {
 
-    static class Rectangle {
+    private Long width;
+    private Long height;
 
-        private Long width;
-        private Long height;
+    public Rectangle(Long width, Long height) {
+        this.width = width;
+        this.height = height;
+    }
 
-        public Rectangle(Long width, Long height) {
-            this.width = width;
-            this.height = height;
-        }
+    public Long getWidth() {
+        return width;
+    }
 
-        public Long getWidth() {
-            return width;
-        }
+    public void setWidth(Long width) {
+        this.width = width;
+    }
 
-        public void setWidth(Long width) {
-            this.width = width;
-        }
+    public Long getHeight() {
+        return height;
+    }
 
-        public Long getHeight() {
-            return height;
-        }
+    public void setHeight(Long height) {
+        this.height = height;
+    }
 
-        public void setHeight(Long height) {
-            this.height = height;
-        }
-
-        public long area() {
-            return width * height;
-        }
+    public long area() {
+        return width * height;
     }
 
     public static void main(String[] args) {
