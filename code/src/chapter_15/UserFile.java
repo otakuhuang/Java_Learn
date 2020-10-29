@@ -1,46 +1,56 @@
 package chapter_15;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+
+import static utils.Utils.output;
 
 public class UserFile {
 
-    public static String fileOutputStream(File file) throws IOException {
+    public static void fileOutputStream(File file) throws IOException {
+
+        // TODO 建立从文件到程序的数据输入（input）流
+        FileInputStream fis = new FileInputStream(file);
+        // TODO 用 InputStreamReader 将这个byte 流套一下，装饰一下，并指定字符编码，让它能够将读出的byte转为字符
+        InputStreamReader isr = new InputStreamReader(fis);
+        // TODO 增加缓存功能，输入输出效率更高，并且可以一次读取一行
+        BufferedReader br = new BufferedReader(isr);
         String str = null;
-        String reader = null;
+
         if (file.exists()) {
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            int i = 0;
             while ((str = br.readLine()) != null) {
-                i++;
-                System.out.println(str);
-                reader = reader + str;
+                output(str);
             }
-            br.close();
-            fr.close();
         }
-        return reader;
+
+        br.close();
+        isr.close();
+        fis.close();
     }
 
     public static void fileInputStream(File file) throws IOException {
         Scanner in = new Scanner(System.in);
-        FileWriter fw = new FileWriter(file);
-        BufferedWriter bw = new BufferedWriter(fw);
+        // TODO 创建一个inputstream，建立一个从文件到程序的byte数据传输流
+        FileOutputStream fos = new FileOutputStream(file);
+        // TODO 建立一个可以消费inputstream的writer，并指定字符集，这样就可以一个个的写入字符了
+        OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
+        // TODO 使用PrintWriter，可以方便的写入一行字符
+        PrintWriter pw = new PrintWriter(osw);
         boolean flag = true;
         while(flag) {
             System.out.print("请输入: ");
-            String str = in.nextLine();
+            String str = in.nextLine().trim();
             if(file.exists() && !"done".equals(str)) {
-                bw.write(str);
-                bw.newLine();
-                bw.flush();
+                pw.println(str);
+                pw.flush();
             } else {
                 flag = false;
             }
         }
-        bw.close();
-        fw.close();
+        pw.close();
+        osw.close();
+        fos.close();
     }
 
     public static void deleteFile(File file) {
@@ -63,7 +73,7 @@ public class UserFile {
         try {
             File file = createFile();
             fileInputStream(file);
-            System.out.println(fileOutputStream(file));
+            fileOutputStream(file);
             deleteFile(file);
         } catch (IOException e) {
             e.printStackTrace();
