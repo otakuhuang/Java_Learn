@@ -3,6 +3,8 @@ package chapter_16;
 import java.lang.reflect.Array;
 import java.time.format.TextStyle;
 
+import static utils.Utils.output;
+
 public class chapter_16_1 {
 
     public static void main(String[] args) {
@@ -31,12 +33,12 @@ class Arrays {
 
     public void print() {
         for (int i : ints) {
-            System.out.println("i= " + i);
+            output("i= " + i);
         }
-        System.out.println();
+        output(null);
         for (String str : strings) {
-            System.out.println("str= " + str);
+            output("str= " + str);
         }
-        System.out.println();
+        output(null);
     }
 }
