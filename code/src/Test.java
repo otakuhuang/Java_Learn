@@ -10,19 +10,25 @@ import java.net.*;
 
 public class Test {
 
+    String name;
+
     public static void main(String[] args) {
-        int x = 0;
-        int y = 0;
-        while (x < 5) {
-            if (y < 5) {
-                x = x + 1;
-                if (y < 3) {
-                    x = x - 1;
-                }
+
+        Test[] t = new Test[3];
+        int z = 0;
+
+        while (z < 3) {
+            t[z] = new Test();
+            t[z].name = "bilbo";
+            if (z == 1) {
+                t[z].name = "frodo";
             }
-            y = y + 2;
-            System.out.print(x + "" + y + " ");
-            x = x + 1;
+            if (z == 2) {
+                t[z].name = "sam";
+            }
+            System.out.print(t[z].name + " is a ");
+            System.out.println("good Hobbit name");
+            z = z + 1;
         }
     }
 }

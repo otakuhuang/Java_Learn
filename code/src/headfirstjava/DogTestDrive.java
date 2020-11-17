@@ -5,6 +5,8 @@ public class DogTestDrive {
         Dog d = new Dog();
         d.size = 40;
         d.bark();
+        d.eat();
+        d.chaseCat();
     }
 }
 
@@ -15,5 +17,13 @@ class Dog {
 
     void bark() {
         System.out.println("汪!");
+    }
+
+    void eat() {
+
+    }
+
+    void chaseCat() {
+
     }
 }
